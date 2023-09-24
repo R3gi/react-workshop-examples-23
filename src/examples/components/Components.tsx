@@ -17,6 +17,7 @@ import State from './toRefactor/State';
 import StateClass from './toRefactor/StateClass';
 import TextInput from './toRefactor/TextInput';
 import UncontrolledForm from './UncontrolledForm';
+import { AdvancedComponents } from '../advanced/AdvancedComponents';
 
 const user: TUser = {
   name: 'foobar',
@@ -43,5 +44,6 @@ export const Components = () => (
     {/* <FetchClass /> */}
     {/* <ReactQuery /> */}
     {/* <Fetch /> */}
+    {/* <AdvancedComponents /> */}
   </section>
 );
