@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import axios from 'axios';
 
 interface State {
@@ -7,7 +7,7 @@ interface State {
   data: { hits: { objectID: string; url: string; title: string }[] };
 }
 
-class FetchClass extends React.PureComponent<unknown, State> {
+class FetchClass extends PureComponent<unknown, State> {
   constructor(props: unknown) {
     super(props);
 

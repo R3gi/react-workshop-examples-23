@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 
 type State = {
   count: number;
@@ -18,7 +18,7 @@ const reducer = (state: State, action: { type: string; value: number }) => {
   }
 };
 export const CounterWithDispatcher = () => {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>

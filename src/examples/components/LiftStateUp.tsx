@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC, FormEvent, useState } from 'react';
 
-const TodoList: React.FC<{ todos: string[]; onClick: (index: number) => void }> = ({ todos, onClick }) => (
+const TodoList: FC<{ todos: string[]; onClick: (index: number) => void }> = ({ todos, onClick }) => (
   <ul>
     {todos.map((todo, index) => (
       <li key={`list-${index}`}>
@@ -13,10 +13,10 @@ const TodoList: React.FC<{ todos: string[]; onClick: (index: number) => void }> 
   </ul>
 );
 
-const Control: React.FC<{ onClick: (value: string) => void }> = ({ onClick }) => {
-  const [value, setValue] = React.useState<string>('');
+const Control: FC<{ onClick: (value: string) => void }> = ({ onClick }) => {
+  const [value, setValue] = useState<string>('');
 
-  const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleOnChange = (event: FormEvent<HTMLInputElement>) => {
     setValue(event.currentTarget.value);
   };
 
@@ -39,8 +39,8 @@ const Control: React.FC<{ onClick: (value: string) => void }> = ({ onClick }) =>
   );
 };
 
-const LiftStateUp: React.FC<{ title: string }> = ({ title }) => {
-  const [todos, setTodos] = React.useState<string[]>([]);
+const LiftStateUp: FC<{ title: string }> = ({ title }) => {
+  const [todos, setTodos] = useState<string[]>([]);
 
   const addTodo = (todo: string) => {
     setTodos(todos => [...todos, todo]);

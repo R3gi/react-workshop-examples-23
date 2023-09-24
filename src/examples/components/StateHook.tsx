@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const Counter = () => {
-  const [count, setCount] = React.useState<number>(0);
-  const [nic, setNic] = React.useState<number>(5);
+  const [count, setCount] = useState<number>(0);
+  const [nic, setNic] = useState<number>(5);
 
   const handleState = (previousCount: number) => setCount(previousCount + 1);
 

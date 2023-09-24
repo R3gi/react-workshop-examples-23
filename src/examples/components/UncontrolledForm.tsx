@@ -1,17 +1,17 @@
-import React, { RefObject } from 'react';
+import React, { FormEvent, PureComponent, RefObject, createRef } from 'react';
 
-class UncontrolledForm extends React.PureComponent<unknown> {
+class UncontrolledForm extends PureComponent<unknown> {
   fileInput: RefObject<HTMLInputElement>;
   textInput: RefObject<HTMLInputElement>;
 
   constructor(props: unknown) {
     super(props);
 
-    this.fileInput = React.createRef();
-    this.textInput = React.createRef();
+    this.fileInput = createRef();
+    this.textInput = createRef();
   }
 
-  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (this.fileInput?.current?.files) {
       alert(`File - ${this.fileInput.current.files[0]?.name}`);

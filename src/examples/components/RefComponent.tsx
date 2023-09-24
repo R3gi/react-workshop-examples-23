@@ -1,6 +1,6 @@
-import React, { PureComponent, ReactNode, RefObject, createRef } from 'react';
+import React, { FC, PureComponent, ReactNode, RefObject, createRef } from 'react';
 
-const Button: React.FC<{ children: ReactNode; onClick: () => void }> = ({ children, onClick }) => (
+const Button: FC<{ children: ReactNode; onClick: () => void }> = ({ children, onClick }) => (
   <button type="button" className="btn" onClick={onClick}>
     {children}
   </button>

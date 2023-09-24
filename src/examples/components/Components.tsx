@@ -18,6 +18,8 @@ import StateClass from './toRefactor/StateClass';
 import TextInput from './toRefactor/TextInput';
 import UncontrolledForm from './UncontrolledForm';
 import { AdvancedComponents } from '../advanced/AdvancedComponents';
+import ErrorBoundary from './ErrorBoundary';
+import { Error } from './Error';
 
 const user: TUser = {
   name: 'foobar',

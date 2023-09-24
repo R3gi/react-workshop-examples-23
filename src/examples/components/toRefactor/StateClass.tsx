@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-class StateClass extends React.PureComponent<unknown, { color: string }> {
+class StateClass extends PureComponent<unknown, { color: string }> {
   constructor(props: unknown) {
     super(props);
 

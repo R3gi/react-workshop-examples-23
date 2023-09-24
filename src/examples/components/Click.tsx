@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 interface Props {
   title: string;
 }
 
-class Click extends React.Component<Props, { toggled: boolean }> {
+class Click extends Component<Props, { toggled: boolean }> {
   // static defaultProps = {
   //   title: 'ahoj',
   // };

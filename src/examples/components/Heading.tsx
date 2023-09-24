@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode } from 'react';
+import React, { FC, Fragment, ReactNode } from 'react';
 
 export type TUser = {
   name: string;
@@ -10,7 +10,7 @@ interface HeadingProps {
   user: TUser;
 }
 
-const Heading: React.FC<HeadingProps> = ({ title = 'foo', children, user: { name } }) => (
+const Heading: FC<HeadingProps> = ({ title = 'foo', children, user: { name } }) => (
   <>
     <h1>{title}</h1>
     {children}

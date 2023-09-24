@@ -1,12 +1,12 @@
-import React, { RefObject } from 'react';
+import React, { PureComponent, RefObject, createRef } from 'react';
 
-class TextInput extends React.PureComponent<unknown> {
+class TextInput extends PureComponent<unknown> {
   inputRef: RefObject<HTMLInputElement>;
 
   constructor(props: unknown) {
     super(props);
 
-    this.inputRef = React.createRef();
+    this.inputRef = createRef();
   }
 
   handleFocus = () => {

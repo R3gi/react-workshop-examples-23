@@ -1,18 +1,18 @@
 /* eslint-disable react/state-in-constructor */
-import React from 'react';
+import React, { Component, FormEvent } from 'react';
 
 interface State {
   foo: string;
   bar: string;
 }
 
-class Input extends React.Component<unknown, State> {
+class Input extends Component<unknown, State> {
   state = {
     foo: '',
     bar: '',
   };
 
-  handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+  handleChange = (event: FormEvent<HTMLInputElement>) => {
     const savedTarget = event.currentTarget;
 
     this.setState(
@@ -31,7 +31,7 @@ class Input extends React.Component<unknown, State> {
           type="text"
           name="foo"
           value={this.state.foo}
-          onChange={(event: React.FormEvent<HTMLInputElement>) => this.handleChange(event)}
+          onChange={(event: FormEvent<HTMLInputElement>) => this.handleChange(event)}
         />
         <input type="text" name="bar" value={this.state.bar} onChange={this.handleChange} />
       </>

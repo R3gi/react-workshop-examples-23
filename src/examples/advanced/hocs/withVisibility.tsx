@@ -1,3 +1,5 @@
+import { ComponentType } from 'react';
+
 interface VisibilityProps {
   isVisible?: boolean;
 }
@@ -7,9 +9,7 @@ interface VisibilityProps {
  * @param WrappedComponent component to be selectively hidden
  * @returns null if `isVisible` is false
  */
-export const withVisibility = <P = {},>(
-  WrappedComponent: React.ComponentType<P>,
-): React.ComponentType<P & VisibilityProps> => {
+export const withVisibility = <P = {},>(WrappedComponent: ComponentType<P>): ComponentType<P & VisibilityProps> => {
   const VisibilityControlled = (props: P & VisibilityProps) => {
     if (props.isVisible === false) {
       return null;

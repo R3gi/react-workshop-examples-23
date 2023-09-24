@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { PureComponent, useContext } from 'react';
 import LocaleContext from '../contexts/LocaleContext';
 
 const LocaleTogglerButton = () => (
@@ -21,7 +21,7 @@ const Text = () => {
   return <h2>{locale}</h2>;
 };
 
-class ContextApply extends React.PureComponent<unknown, { locale: string; toggleLocale: () => void }> {
+class ContextApply extends PureComponent<unknown, { locale: string; toggleLocale: () => void }> {
   constructor(props: unknown) {
     super(props);
 

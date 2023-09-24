@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useEffect } from 'react';
 import { ReactNode } from 'react';
 
 type Items = { objectID: string; title: string }[];
 
-const Table: React.FC<{ items: Items }> = ({ items }) => (
+const Table: FC<{ items: Items }> = ({ items }) => (
   <table>
     <tbody>
       {items.map(item => (
@@ -17,7 +17,7 @@ const Table: React.FC<{ items: Items }> = ({ items }) => (
   </table>
 );
 
-const Grid: React.FC<{ items: Items }> = ({ items }) => (
+const Grid: FC<{ items: Items }> = ({ items }) => (
   <div className="row">
     {items.map(item => (
       <div className="col" key={item.objectID}>
@@ -28,7 +28,7 @@ const Grid: React.FC<{ items: Items }> = ({ items }) => (
   </div>
 );
 
-const RenderProps: React.FC<{ render: { (items: Items): ReactNode }; title: string }> = ({ render, title }) => {
+const RenderProps: FC<{ render: { (items: Items): ReactNode }; title: string }> = ({ render, title }) => {
   const [items, setItems] = useState<Items>([]);
 
   useEffect(() => {
@@ -50,6 +50,6 @@ const RenderProps: React.FC<{ render: { (items: Items): ReactNode }; title: stri
   );
 };
 
-export const ItemsTable: React.FC = () => <RenderProps title="Table" render={items => <Table items={items} />} />;
+export const ItemsTable: FC = () => <RenderProps title="Table" render={items => <Table items={items} />} />;
 
-export const ItemsGrid: React.FC = () => <RenderProps title="Grid" render={items => <Grid items={items} />} />;
+export const ItemsGrid: FC = () => <RenderProps title="Grid" render={items => <Grid items={items} />} />;

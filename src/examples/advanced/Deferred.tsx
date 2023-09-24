@@ -1,11 +1,11 @@
-import { useId, useDeferredValue, useMemo } from 'react';
+import { useId, useDeferredValue, useMemo, FC } from 'react';
 
 const SIZE = 2000;
 const list = Array(SIZE)
   .fill(null)
   .map((_, index) => ({ id: index, name: `bar${index.toString()}` }));
 
-export const Deferred: React.FC<{ name: string }> = ({ name }) => {
+export const Deferred: FC<{ name: string }> = ({ name }) => {
   const deferredName = useDeferredValue(name);
   const bigList = useMemo(
     () => list.filter(item => deferredName !== '' && item.name.includes(deferredName)),
@@ -25,7 +25,7 @@ interface ItemProps {
   value: string;
 }
 
-const Item: React.FC<ItemProps> = ({ value }) => <p>{value}</p>;
+const Item: FC<ItemProps> = ({ value }) => <p>{value}</p>;
 
 export const Id = () => {
   const id = useId();

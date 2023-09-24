@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-const FetchReactQuery: React.FC = () => {
+const FetchReactQuery: FC = () => {
   const [query, setQuery] = useState<string>('redux');
   const [search, setSearch] = useState<string>('redux');
 

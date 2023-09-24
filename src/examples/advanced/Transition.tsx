@@ -1,6 +1,6 @@
-import { useState, useTransition, useMemo, ChangeEvent } from 'react';
+import { useState, useTransition, useMemo, ChangeEvent, FC } from 'react';
 
-// export const Transition: React.FC = () => {
+// export const Transition: FC = () => {
 //   const [isPending, startTransition] = useTransition();
 //   const [count, setCount] = useState(0);
 
@@ -23,7 +23,7 @@ const list = Array(SIZE)
   .fill(null)
   .map((_, index) => ({ id: index, name: `bar${index.toString()}` }));
 
-export const Transition: React.FC = () => {
+export const Transition: FC = () => {
   const [name, setName] = useState('');
   const [isPending, startTransition] = useTransition();
   const bigList = useMemo(() => list.filter(item => name !== '' && item.name.includes(name)), [name]);
@@ -49,4 +49,4 @@ interface ItemProps {
   value: string;
 }
 
-const Item: React.FC<ItemProps> = ({ value }) => <p>{value}</p>;
+const Item: FC<ItemProps> = ({ value }) => <p>{value}</p>;

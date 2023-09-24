@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 // Turn on Strict Mode
-const LifecycleDemo: React.FC<{ random: number; mounted: boolean }> = ({ random, mounted }) => {
-  React.useEffect(() => {
+const LifecycleDemo: FC<{ random: number; mounted: boolean }> = ({ random, mounted }) => {
+  useEffect(() => {
     console.log('use effect - aka componentDidMount + componentDidUpdate!'); // Every render (componentDidMount + componentDidUpdate)
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('use effect! - aka componentDidMount'); // Only first render componentDidMount
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('use effect! random changed', mounted); // First render + if dep (mounted) is changed
   }, [mounted]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     return () => console.log('unmounting & clenaup...'); // componentWillUnmount
   }, [mounted]);
 
@@ -22,8 +22,8 @@ const LifecycleDemo: React.FC<{ random: number; mounted: boolean }> = ({ random,
 };
 
 export const Effects = () => {
-  const [random, setRandom] = React.useState(Math.random());
-  const [mounted, setMounted] = React.useState(true);
+  const [random, setRandom] = useState(Math.random());
+  const [mounted, setMounted] = useState(true);
 
   const reRender = () => setRandom(Math.random());
   const toggle = () => setMounted(prevMounted => !prevMounted);

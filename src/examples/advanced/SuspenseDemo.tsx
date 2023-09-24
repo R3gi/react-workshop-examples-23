@@ -1,8 +1,8 @@
-import { Suspense, lazy } from 'react';
+import { FC, Suspense, lazy } from 'react';
 
 const DynamicFetch = lazy(() => import('./FetchSwr'));
 
-export const SuspenseDemo: React.FC = () => (
+export const SuspenseDemo: FC = () => (
   <Suspense fallback={`Loading...`}>
     <DynamicFetch />
   </Suspense>

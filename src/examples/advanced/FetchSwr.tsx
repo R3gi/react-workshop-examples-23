@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import useSWR, { Fetcher } from 'swr';
 
 type Items = { objectID: string; title: string }[];
 const fetcher: Fetcher<Items> = (url: string) => fetch(url).then(res => res.json().then(data => data.hits));
 
-const FetchSwr: React.FC = () => {
+const FetchSwr: FC = () => {
   const { data, error } = useSWR('https://hn.algolia.com/api/v1/search?query=redux', fetcher);
 
   if (error) {
