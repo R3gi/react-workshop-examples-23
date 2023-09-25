@@ -25,7 +25,7 @@ interface ItemProps {
   value: string;
 }
 
-const Item: FC<ItemProps> = ({ value }) => <p>{value}</p>;
+const Item: FC<ItemProps> = ({ value }) => <p data-testid={`item`}>{value}</p>;
 
 export const Id = () => {
   const id = useId();
