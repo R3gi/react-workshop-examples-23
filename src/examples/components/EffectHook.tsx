@@ -18,6 +18,7 @@ const LifecycleDemo: FC<{ random: number; mounted: boolean }> = ({ random, mount
     return () => console.log('unmounting & clenaup...'); // componentWillUnmount
   }, [mounted]);
 
+  // eslint-disable-next-line react/no-unescaped-entities
   return <p>I'm a lifecycle demo</p>;
 };
 

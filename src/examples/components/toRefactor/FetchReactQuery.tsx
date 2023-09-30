@@ -9,9 +9,9 @@ const FetchReactQuery: FC = () => {
   const { isLoading, error, data } = useQuery<{ hits: { objectID: string; url?: string; title?: string }[] }>(
     search,
     async () => {
-      const { data } = await axios.get(`https://hn.algolia.com/api/v1/search?query=${search}`);
+      const { data: loadedData } = await axios.get(`https://hn.algolia.com/api/v1/search?query=${search}`);
 
-      return data;
+      return loadedData;
     },
   );
 

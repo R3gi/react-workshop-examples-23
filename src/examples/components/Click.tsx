@@ -18,6 +18,7 @@ class Click extends Component<Props, { toggled: boolean }> {
     // this.handleClick = this.handleClick.bind(this);
   }
 
+  // eslint-disable-next-line react/state-in-constructor
   state = {
     toggled: false,
   };

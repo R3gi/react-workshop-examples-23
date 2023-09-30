@@ -2,6 +2,7 @@ import React, { FormEvent, PureComponent, RefObject, createRef } from 'react';
 
 class UncontrolledForm extends PureComponent<unknown> {
   fileInput: RefObject<HTMLInputElement>;
+
   textInput: RefObject<HTMLInputElement>;
 
   constructor(props: unknown) {

@@ -17,7 +17,9 @@ class TextInput extends PureComponent<unknown> {
     return (
       <div>
         <input ref={this.inputRef} placeholder="name" />
-        <button onClick={this.handleFocus}>Focus</button>
+        <button type="button" onClick={this.handleFocus}>
+          Focus
+        </button>
       </div>
     );
   }

@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
-import Heading from '../Heading';
-import { TUser } from '../Heading';
+import Heading, { TUser } from '../Heading';
 
 describe('<Heading />', () => {
   describe('#render', () => {

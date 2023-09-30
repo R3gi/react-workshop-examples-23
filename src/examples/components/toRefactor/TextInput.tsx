@@ -10,7 +10,9 @@ const TextInput = () => {
   return (
     <div>
       <input ref={nameRef} placeholder="name" />
-      <button onClick={handleFocus}>Focus</button>
+      <button type="button" onClick={handleFocus}>
+        Focus
+      </button>
     </div>
   );
 };

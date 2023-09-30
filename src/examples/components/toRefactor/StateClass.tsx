@@ -14,6 +14,7 @@ class StateClass extends PureComponent<unknown, { color: string }> {
       <div>
         <h1 style={{ color: this.state.color }}>React Hooks</h1>
         <button
+          type="button"
           onClick={() => {
             this.setState(state => ({ ...state, color: 'red' }));
           }}

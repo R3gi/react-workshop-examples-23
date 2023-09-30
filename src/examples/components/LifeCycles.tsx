@@ -45,12 +45,13 @@ class LifeCycles extends PureComponent<Props, State> {
   };
 
   render() {
+    const { toggled } = this.state;
     console.log('render');
     return (
       <div>
-        {this.state.toggled && <Comp />}
+        {toggled && <Comp />}
         <button type="button" onClick={this.handleClick}>
-          {this.state.toggled ? 'On' : 'Off'}
+          {toggled ? 'On' : 'Off'}
         </button>
       </div>
     );

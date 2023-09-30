@@ -5,8 +5,9 @@ const State = () => {
 
   return (
     <div>
-      <h1 style={{ color: color }}>React Hooks</h1>
+      <h1 style={{ color }}>React Hooks</h1>
       <button
+        type="button"
         onClick={() => {
           setColor(() => 'red');
         }}

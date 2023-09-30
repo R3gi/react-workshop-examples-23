@@ -3,6 +3,7 @@ import React, { FC, FormEvent, useState } from 'react';
 const TodoList: FC<{ todos: string[]; onClick: (index: number) => void }> = ({ todos, onClick }) => (
   <ul>
     {todos.map((todo, index) => (
+      // eslint-disable-next-line react/no-array-index-key
       <li key={`list-${index}`}>
         {todo}
         <button type="button" onClick={() => onClick(index)}>
@@ -43,11 +44,11 @@ const LiftStateUp: FC<{ title: string }> = ({ title }) => {
   const [todos, setTodos] = useState<string[]>([]);
 
   const addTodo = (todo: string) => {
-    setTodos(todos => [...todos, todo]);
+    setTodos(prevTodos => [...prevTodos, todo]);
   };
 
   const deleteTodo = (index: number) => {
-    setTodos(todos => todos.filter((_, position) => position !== index));
+    setTodos(prevTodos => prevTodos.filter((_, position) => position !== index));
   };
 
   return (

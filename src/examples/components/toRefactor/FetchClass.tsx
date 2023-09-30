@@ -18,12 +18,6 @@ class FetchClass extends PureComponent<unknown, State> {
     };
   }
 
-  fetchData = async (search: string) => {
-    const result = await axios(`https://hn.algolia.com/api/v1/search?query=${search}`);
-
-    this.setState(state => ({ ...state, data: result.data }));
-  };
-
   componentDidMount() {
     this.fetchData(this.state.search);
   }
@@ -33,6 +27,12 @@ class FetchClass extends PureComponent<unknown, State> {
       this.fetchData(this.state.search);
     }
   }
+
+  fetchData = async (search: string) => {
+    const result = await axios(`https://hn.algolia.com/api/v1/search?query=${search}`);
+
+    this.setState(state => ({ ...state, data: result.data }));
+  };
 
   setQuery = (query: string) => {
     this.setState(state => ({ ...state, query }));
@@ -46,7 +46,7 @@ class FetchClass extends PureComponent<unknown, State> {
     const { query, data } = this.state;
 
     return (
-      <Fragment>
+      <>
         <input type="text" value={query} onChange={event => this.setQuery(event.target.value)} />
         <button type="button" onClick={() => this.setSearch(query)}>
           Search
@@ -58,7 +58,7 @@ class FetchClass extends PureComponent<unknown, State> {
             </li>
           ))}
         </ul>
-      </Fragment>
+      </>
     );
   }
 }

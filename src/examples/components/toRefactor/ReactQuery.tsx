@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
-import FetchReactQuery from './FetchReactQuery';
 import { FC } from 'react';
+import FetchReactQuery from './FetchReactQuery';
 
 const queryClient = new QueryClient();
 

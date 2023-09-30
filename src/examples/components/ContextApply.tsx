@@ -27,6 +27,7 @@ class ContextApply extends PureComponent<unknown, { locale: string; toggleLocale
 
     this.state = {
       locale: 'cs',
+      // eslint-disable-next-line react/no-unused-state
       toggleLocale: this.toggleLocale,
     };
   }

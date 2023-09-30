@@ -16,7 +16,7 @@ const Fetch = () => {
   }, [search]);
 
   return (
-    <Fragment>
+    <>
       <input type="text" value={query} onChange={event => setQuery(event.target.value)} />
       <button type="button" onClick={() => setSearch(query)}>
         Search
@@ -28,7 +28,7 @@ const Fetch = () => {
           </li>
         ))}
       </ul>
-    </Fragment>
+    </>
   );
 };
 

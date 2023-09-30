@@ -19,21 +19,23 @@ class Input extends Component<unknown, State> {
       () =>
         ({
           [savedTarget.name]: savedTarget.value,
-        } as Pick<State, keyof State>),
+        }) as Pick<State, keyof State>,
     );
   };
 
   render() {
+    const { foo, bar } = this.state;
+
     return (
       <>
         <h2>Input</h2>
         <input
           type="text"
           name="foo"
-          value={this.state.foo}
+          value={foo}
           onChange={(event: FormEvent<HTMLInputElement>) => this.handleChange(event)}
         />
-        <input type="text" name="bar" value={this.state.bar} onChange={this.handleChange} />
+        <input type="text" name="bar" value={bar} onChange={this.handleChange} />
       </>
     );
   }
