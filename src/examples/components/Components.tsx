@@ -18,15 +18,17 @@ import StateClass from './toRefactor/StateClass';
 import TextInput from './toRefactor/TextInput';
 import UncontrolledForm from './UncontrolledForm';
 import { AdvancedComponents } from '../advanced/AdvancedComponents';
+import { CssModule } from './cssModules/CssModule';
 
 const user: TUser = {
   name: 'foobar',
 };
 export const Components = () => (
   <section>
-    <Heading title="hoo" user={user}>
+    <CssModule />
+    {/* <Heading title="hoo" user={user}>
       <p>Playground</p>
-    </Heading>
+    </Heading> */}
     {/* <Click title="Title" /> */}
     {/* <Input /> */}
     {/* <LifeCycles /> */}
