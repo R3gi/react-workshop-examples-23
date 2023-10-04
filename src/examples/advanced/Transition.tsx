@@ -1,22 +1,10 @@
 import { useState, useTransition, useMemo, ChangeEvent, FC } from 'react';
 
-// export const Transition: FC = () => {
-//   const [isPending, startTransition] = useTransition();
-//   const [count, setCount] = useState(0);
+interface ItemProps {
+  value: string;
+}
 
-//   const handleClick = () => {
-//     startTransition(() => {
-//       setCount(prevCount => prevCount + 1);
-//     });
-//   };
-
-//   return (
-//     <div>
-//       {isPending && <p>Loading...</p>}
-//       <button onClick={handleClick}>{count}</button>
-//     </div>
-//   );
-// };
+const Item: FC<ItemProps> = ({ value }) => <p>{value}</p>;
 
 const SIZE = 2000;
 const list = Array(SIZE)
@@ -25,12 +13,13 @@ const list = Array(SIZE)
 
 export const Transition: FC = () => {
   const [name, setName] = useState('');
+  const [filteredList, setFilteredList] = useState<{ id: number; name: string }[]>([]);
   const [isPending, startTransition] = useTransition();
-  const bigList = useMemo(() => list.filter(item => name !== '' && item.name.includes(name)), [name]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
     startTransition(() => {
-      setName(event.target.value);
+      setFilteredList(list.filter(item => name !== '' && item.name.includes(name)));
     });
   };
 
@@ -38,15 +27,9 @@ export const Transition: FC = () => {
     <>
       <input type="text" value={name} onChange={handleChange} />
       {isPending && <p>Loading...</p>}
-      {bigList.map(item => (
+      {filteredList.map(item => (
         <Item key={item.id} value={item.name} />
       ))}
     </>
   );
 };
-
-interface ItemProps {
-  value: string;
-}
-
-const Item: FC<ItemProps> = ({ value }) => <p>{value}</p>;

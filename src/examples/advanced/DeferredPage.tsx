@@ -12,7 +12,6 @@ export const DeferredPage = () => {
     <div>
       <input type="text" value={name} onChange={handleChange} />
       <Deferred name={name} />
-      <Id />
     </div>
   );
 };

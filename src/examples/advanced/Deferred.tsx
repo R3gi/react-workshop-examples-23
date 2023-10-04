@@ -1,4 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useId, useDeferredValue, useMemo, FC } from 'react';
+
+interface ItemProps {
+  value: string;
+}
+
+const Item: FC<ItemProps> = ({ value }) => <p data-testid="item">{value}</p>;
 
 const SIZE = 2000;
 const list = Array(SIZE)
@@ -20,12 +27,6 @@ export const Deferred: FC<{ name: string }> = ({ name }) => {
     </>
   );
 };
-
-interface ItemProps {
-  value: string;
-}
-
-const Item: FC<ItemProps> = ({ value }) => <p data-testid={`item`}>{value}</p>;
 
 export const Id = () => {
   const id = useId();

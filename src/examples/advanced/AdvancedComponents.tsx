@@ -7,8 +7,8 @@ import { FetchPage } from './FetchPage';
 
 export const AdvancedComponents = () => (
   <section>
-    {/* <DeferredPage /> */}
-    <RenderPropsPage />
+    <DeferredPage />
+    {/* <RenderPropsPage /> */}
     {/* <TransitionPage /> */}
     {/* <FetchPage /> */}
     {/* <SuspensePage /> */}

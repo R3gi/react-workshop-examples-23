@@ -12,7 +12,7 @@ const FetchSwr: FC = () => {
   }
 
   if (!data) {
-    return <p>Loading...</p>;
+    return <p>Loading atesfdsfsfs...</p>;
   }
 
   return (
