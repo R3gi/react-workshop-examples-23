@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Fetch = () => {
+export const Fetch = () => {
   const [data, setData] = useState<{ hits: { objectID: string; url: string; title: string }[] }>({ hits: [] });
   const [query, setQuery] = useState<string>('redux');
   const [search, setSearch] = useState<string>('redux');
@@ -31,5 +31,3 @@ const Fetch = () => {
     </>
   );
 };
-
-export default Fetch;

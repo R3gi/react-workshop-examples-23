@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Heading /> #render should render component with { title: 'bar' } 1`] = `
+<div>
+  <h1>
+    bar
+  </h1>
+  text
+  <p>
+    foobar
+  </p>
+  <button
+    type="button"
+  >
+    btn
+  </button>
+</div>
+`;
+
+exports[`<Heading /> #render should render component with { title: 'foo' } 1`] = `
+<div>
+  <h1>
+    foo
+  </h1>
+  text
+  <p>
+    foobar
+  </p>
+  <button
+    type="button"
+  >
+    btn
+  </button>
+</div>
+`;
+
+exports[`<Heading /> #render should render component with { title: undefined } 1`] = `
+<div>
+  <h1>
+    foo
+  </h1>
+  text
+  <p>
+    foobar
+  </p>
+  <button
+    type="button"
+  >
+    btn
+  </button>
+</div>
+`;
+
 exports[`<Heading /> #render should render component with default props 1`] = `
 <div>
   <h1>
@@ -9,6 +60,11 @@ exports[`<Heading /> #render should render component with default props 1`] = `
   <p>
     foobar
   </p>
+  <button
+    type="button"
+  >
+    btn
+  </button>
 </div>
 `;
 
@@ -21,5 +77,10 @@ exports[`<Heading /> #render should render component with title 1`] = `
   <p>
     foobar
   </p>
+  <button
+    type="button"
+  >
+    btn
+  </button>
 </div>
 `;

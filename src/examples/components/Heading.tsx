@@ -8,13 +8,15 @@ interface HeadingProps {
   title?: string;
   children: ReactNode;
   user: TUser;
+  button: ReactNode;
 }
 
-const Heading: FC<HeadingProps> = ({ title = 'foo', children, user: { name } }) => (
+export const Heading: FC<HeadingProps> = ({ title = 'foo', children, user: { name }, button }) => (
   <>
     <h1>{title}</h1>
     {children}
     <p>{name}</p>
+    {button}
   </>
 );
 
@@ -45,5 +47,3 @@ const Heading: FC<HeadingProps> = ({ title = 'foo', children, user: { name } }) 
 //     );
 //   }
 // }
-
-export default Heading;

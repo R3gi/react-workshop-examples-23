@@ -1,10 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 
-// Turn on Strict Mode
-const LifecycleDemo: FC<{ random: number; mounted: boolean }> = ({ random, mounted }) => {
+const useLifecycle = (isLogged: boolean, mounted: boolean) => {
   useEffect(() => {
-    console.log('use effect - aka componentDidMount + componentDidUpdate!'); // Every render (componentDidMount + componentDidUpdate)
-  });
+    if (isLogged) {
+      console.log('use effect - aka componentDidMount + componentDidUpdate!'); // Every render (componentDidMount + componentDidUpdate)
+    }
+
+    return () => console.log('every unmounting & clenaup...'); // componentWillUnmount
+  }, [isLogged]);
 
   useEffect(() => {
     console.log('use effect! - aka componentDidMount'); // Only first render componentDidMount
@@ -17,6 +20,11 @@ const LifecycleDemo: FC<{ random: number; mounted: boolean }> = ({ random, mount
   useEffect(() => {
     return () => console.log('unmounting & clenaup...'); // componentWillUnmount
   }, [mounted]);
+};
+
+// Turn on Strict Mode
+const LifecycleDemo: FC<{ random: number; mounted: boolean; isLogged: boolean }> = ({ random, mounted, isLogged }) => {
+  useLifecycle(isLogged, mounted);
 
   // eslint-disable-next-line react/no-unescaped-entities
   return <p>I'm a lifecycle demo</p>;
@@ -38,7 +46,7 @@ export const Effects = () => {
       <button type="button" onClick={toggle}>
         Show/Hide LifecycleDemo
       </button>
-      <LifecycleDemo random={random} mounted={mounted} />
+      <LifecycleDemo random={random} mounted={mounted} isLogged />
     </>
   );
 };

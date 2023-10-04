@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Heading, { TUser } from '../Heading';
+import { Heading, TUser } from '../Heading';
 
 describe('<Heading />', () => {
   describe('#render', () => {
@@ -7,14 +7,28 @@ describe('<Heading />', () => {
       name: 'foobar',
     };
     it('should render component with default props', () => {
-      const { container } = render(<Heading user={user}>text</Heading>);
+      const { container } = render(
+        <Heading user={user} button={<button type="button">btn</button>}>
+          text
+        </Heading>,
+      );
 
       expect(container).toMatchSnapshot();
     });
 
     it('should render component with title', () => {
       const { container } = render(
-        <Heading user={user} title="bar">
+        <Heading user={user} title="bar" button={<button type="button">btn</button>}>
+          text
+        </Heading>,
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it.each([{ title: 'bar' }, { title: undefined }])('should render component with %s', ({ title }) => {
+      const { container } = render(
+        <Heading user={user} title={title} button={<button type="button">btn</button>}>
           text
         </Heading>,
       );

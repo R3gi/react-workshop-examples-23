@@ -1,19 +1,17 @@
-import React, { PureComponent, useContext } from 'react';
-import LocaleContext from '../contexts/LocaleContext';
+import React, { useContext, useMemo, useState } from 'react';
+import LocaleContext, { LocaleContextX } from '../contexts/LocaleContext';
 
-const LocaleTogglerButton = () => (
-  <div>
-    <LocaleContext.Consumer>
-      {({ locale, toggleLocale }) => (
-        <button type="button" onClick={toggleLocale}>
-          Toggle Locale from {locale}
-        </button>
-      )}
-    </LocaleContext.Consumer>
-  </div>
-);
+const LocaleTogglerButton = () => {
+  const { locale, toggleLocale } = useContext(LocaleContext);
 
-// const Text = () => <LocaleContext.Consumer>{({ locale }) => <h2>{locale}</h2>}</LocaleContext.Consumer>;
+  return (
+    <div>
+      <button type="button" onClick={() => toggleLocale(locale === 'en' ? 'cs' : 'en')}>
+        Toggle Locale from {locale}
+      </button>
+    </div>
+  );
+};
 
 const Text = () => {
   const { locale } = useContext(LocaleContext);
@@ -21,31 +19,15 @@ const Text = () => {
   return <h2>{locale}</h2>;
 };
 
-class ContextApply extends PureComponent<unknown, { locale: string; toggleLocale: () => void }> {
-  constructor(props: unknown) {
-    super(props);
+export const ContextApply = () => {
+  const [locale, toggleLocale] = useState('cs');
+  const value = useMemo(() => ({ locale, toggleLocale }), [locale]);
+  // const value = useMemo(() => ({ baseAppUrl: 'http://localhost:3000', locale: 'cs' }), []);
 
-    this.state = {
-      locale: 'cs',
-      // eslint-disable-next-line react/no-unused-state
-      toggleLocale: this.toggleLocale,
-    };
-  }
-
-  toggleLocale = () => {
-    this.setState(state => ({
-      locale: state.locale === 'en' ? 'cs' : 'en',
-    }));
-  };
-
-  render() {
-    return (
-      <LocaleContext.Provider value={this.state}>
-        <LocaleTogglerButton />
-        <Text />
-      </LocaleContext.Provider>
-    );
-  }
-}
-
-export default ContextApply;
+  return (
+    <LocaleContext.Provider value={value}>
+      <LocaleTogglerButton />
+      <Text />
+    </LocaleContext.Provider>
+  );
+};

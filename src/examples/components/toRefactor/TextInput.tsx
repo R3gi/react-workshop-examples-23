@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-const TextInput = () => {
+export const TextInput = () => {
   const nameRef = useRef<HTMLInputElement>(null);
 
   const handleFocus = () => {
@@ -16,5 +16,3 @@ const TextInput = () => {
     </div>
   );
 };
-
-export default TextInput;

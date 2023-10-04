@@ -1,42 +1,30 @@
-import React, { FormEvent, PureComponent, RefObject, createRef } from 'react';
+import React, { FC, FormEvent, useRef } from 'react';
 
-class UncontrolledForm extends PureComponent<unknown> {
-  fileInput: RefObject<HTMLInputElement>;
+export const UncontrolledForm: FC = () => {
+  const textInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  textInput: RefObject<HTMLInputElement>;
-
-  constructor(props: unknown) {
-    super(props);
-
-    this.fileInput = createRef();
-    this.textInput = createRef();
-  }
-
-  handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (this.fileInput?.current?.files) {
-      alert(`File - ${this.fileInput.current.files[0]?.name}`);
+    if (fileInputRef?.current?.files) {
+      alert(`File - ${fileInputRef.current.files[0]?.name}`);
     }
 
-    alert(`Text - ${this.textInput?.current?.value}`);
+    alert(`Text - ${textInputRef?.current?.value}`);
   };
 
-  render() {
-    return (
-      <>
-        <h2>Uncontrolled Form</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="file">
-            Upload file:
-            <input id="file" name="file" type="file" ref={this.fileInput} />{' '}
-          </label>
-          <br />
-          <input type="text" name="text" defaultValue="foo" ref={this.textInput} />
-          <button type="submit">Submit</button>
-        </form>
-      </>
-    );
-  }
-}
-
-export default UncontrolledForm;
+  return (
+    <>
+      <h2>Uncontrolled Form</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="file">
+          Upload file:
+          <input id="file" name="file" type="file" ref={fileInputRef} />{' '}
+        </label>
+        <br />
+        <input type="text" name="text" defaultValue="foo" ref={textInputRef} />
+        <button type="submit">Submit</button>
+      </form>
+    </>
+  );
+};

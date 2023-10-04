@@ -1,15 +1,20 @@
 import React, { FC, FormEvent, useState } from 'react';
 
-const TodoList: FC<{ todos: string[]; onClick: (index: number) => void }> = ({ todos, onClick }) => (
+const TodoItem: FC<{ children: string; onClick: () => void }> = ({ children, onClick }) => (
+  <li>
+    {children}
+    <button type="button" onClick={onClick}>
+      x
+    </button>
+  </li>
+);
+
+const TodoList: FC<{ todos: TTodo[]; onClick: (index: number) => void }> = ({ todos, onClick }) => (
   <ul>
-    {todos.map((todo, index) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <li key={`list-${index}`}>
-        {todo}
-        <button type="button" onClick={() => onClick(index)}>
-          x
-        </button>
-      </li>
+    {todos.map(({ value, id }, index) => (
+      <TodoItem key={id} onClick={() => onClick(index)}>
+        {value}
+      </TodoItem>
     ))}
   </ul>
 );
@@ -40,11 +45,17 @@ const Control: FC<{ onClick: (value: string) => void }> = ({ onClick }) => {
   );
 };
 
-const LiftStateUp: FC<{ title: string }> = ({ title }) => {
-  const [todos, setTodos] = useState<string[]>([]);
+type TTodo = {
+  value: string;
+  id: string;
+};
 
-  const addTodo = (todo: string) => {
-    setTodos(prevTodos => [...prevTodos, todo]);
+const LiftStateUp: FC<{ title: string }> = ({ title }) => {
+  const [todos, setTodos] = useState<TTodo[]>([]);
+
+  const addTodo = (value: string) => {
+    const id = new Date().toISOString();
+    setTodos(prevTodos => [...prevTodos, { value, id }]);
   };
 
   const deleteTodo = (index: number) => {

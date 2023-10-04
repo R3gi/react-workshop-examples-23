@@ -4,10 +4,8 @@ import FetchReactQuery from './FetchReactQuery';
 
 const queryClient = new QueryClient();
 
-const ReactQuery: FC = () => (
+export const ReactQuery: FC = () => (
   <QueryClientProvider client={queryClient}>
     <FetchReactQuery />
   </QueryClientProvider>
 );
-
-export default ReactQuery;
