@@ -6,7 +6,6 @@ import List from './List';
 import { CounterWithDispatcher } from './ReducerHook';
 import { Counter } from './StateHook';
 import { Fetch } from './toRefactor/Fetch';
-import FetchClass from './toRefactor/FetchClass';
 import { ReactQuery } from './toRefactor/ReactQuery';
 import { State } from './toRefactor/State';
 import { TextInput } from './toRefactor/TextInput';
@@ -20,26 +19,22 @@ const user: TUser = {
 };
 export const Components = () => (
   <section>
-    {/* <CssModule /> */}
+    <CssModule />
     {/* <Heading title="hoo" user={user} button={<button type="button">test</button>}>
       <p>Playground</p>
-    </Heading> */}
-    {/* <Click title="Title" /> */}
-    {/* <State /> */}
-    {/* <Input /> */}
-    {/* <UncontrolledForm /> */}
-    {/* <List numbers={[1, 1, 1]} type="a" /> */}
-    {/* <List numbers={[1, 3, 5]} type="b" /> */}
-    {/* <ContextApply /> */}
-    {/* <Counter /> */}
-    {/* <Effects /> */}
-    {/* <CounterWithDispatcher /> */}
-    {/* <LiftStateUp title="Title" /> */}
-    {/* <State /> */}
-    {/* <TextInput /> */}
-    {/* <FetchClass /> */}
-    {/* <ReactQuery /> */}
-    {/* <Fetch /> */}
-    <AdvancedComponents />
+    </Heading>
+    <State />
+    <UncontrolledForm />
+    <List numbers={[1, 1, 1]} type="a" />
+    <List numbers={[1, 3, 5]} type="b" />
+    <ContextApply />
+    <Counter />
+    <Effects />
+    <CounterWithDispatcher />
+    <LiftStateUp title="Title" />
+    <TextInput />
+    <ReactQuery />
+    <Fetch />
+    <AdvancedComponents /> */}
   </section>
 );

@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react';
-import { Deferred, Id } from './Deferred';
+import { Deferred } from './Deferred';
 
 export const DeferredPage = () => {
   const [name, setName] = useState('');

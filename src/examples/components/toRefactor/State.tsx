@@ -22,6 +22,7 @@ export const State = () => {
           // setUser(({ isLogged, isAdmin }) => ({ isLogged: !isLogged, isAdmin }));
           setUser({ ...user, isLogged: !user.isLogged });
           setUser({ ...user, isLogged: !user.isLogged });
+          setColor(() => 'red');
         }}
       >
         change color to red

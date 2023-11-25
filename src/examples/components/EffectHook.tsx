@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { FC, useEffect, useState } from 'react';
 
 const useLifecycle = (isLogged: boolean, mounted: boolean) => {
