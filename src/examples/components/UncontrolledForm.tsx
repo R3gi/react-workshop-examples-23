@@ -6,7 +6,11 @@ export const UncontrolledForm: FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (fileInputRef?.current?.files) {
+    const fields = new FormData(event.currentTarget);
+    console.log(fields.get('text'));
+    console.log(fields.get('file'));
+
+    if (fileInputRef?.current?.files?.length) {
       // eslint-disable-next-line no-alert
       alert(`File - ${fileInputRef.current.files[0]?.name}`);
     }

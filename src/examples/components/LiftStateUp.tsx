@@ -50,7 +50,7 @@ type TTodo = {
   id: string;
 };
 
-const LiftStateUp: FC<{ title: string }> = ({ title }) => {
+export const LiftStateUp: FC<{ title: string }> = ({ title }) => {
   const [todos, setTodos] = useState<TTodo[]>([]);
 
   const addTodo = (value: string) => {
@@ -70,5 +70,3 @@ const LiftStateUp: FC<{ title: string }> = ({ title }) => {
     </div>
   );
 };
-
-export default LiftStateUp;

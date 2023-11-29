@@ -1,4 +1,4 @@
-import FetchSwr from './FetchSwr';
+import { FetchSwr } from '../components/fetching/FetchSwr';
 import { withVisibility } from './hocs/withVisibility';
 
 const FetchWithVisibility = withVisibility(FetchSwr);

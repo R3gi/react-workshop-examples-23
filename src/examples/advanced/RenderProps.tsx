@@ -1,6 +1,4 @@
-import React, { FC, useState } from 'react';
-import { useEffect } from 'react';
-import { ReactNode } from 'react';
+import React, { FC, useState, useEffect, ReactNode } from 'react';
 
 type Items = { objectID: string; title: string }[];
 

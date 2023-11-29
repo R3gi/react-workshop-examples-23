@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-const FetchReactQuery: FC = () => {
+export const FetchReactQuery: FC = () => {
   const [query, setQuery] = useState<string>('redux');
   const [search, setSearch] = useState<string>('redux');
 
@@ -41,5 +41,3 @@ const FetchReactQuery: FC = () => {
     </>
   );
 };
-
-export default FetchReactQuery;
